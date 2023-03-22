@@ -2,7 +2,9 @@
 """
 Created on Wed Mar 22 15:21:42 2023
 
-@author: mastelin
+@author:    Mariana Masteling
+            mastelin@umich.edu
+            University of Michigan, USA
 """
 
 import numpy as np
@@ -66,6 +68,12 @@ def open_file_get_area(filename, archive):
     else:
         return 0
 
+def open_file_get_angle(filename, archive):
+    f = archive.open(filename)
+    
+    data = json.load(f)
+    if data['markups'][0]['measurements'][0]['enabled'] == True:
+        return data['markups'][0]['measurements'][0]['value']
 
 
 #%% Pseudo-code
